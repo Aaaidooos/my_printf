@@ -4,7 +4,7 @@ int get_len(long num, int base)
 {
  if(num == 0)
  {
-   return 0;
+   return 1;
  }
 
  int len = 0;
@@ -31,6 +31,11 @@ int put_char(char ch)
 
 char* convert_to(long num, int base)
 {
+  if(num == 0)
+  {
+    return "0\0";
+  }
+
   int len = get_len(num, base);
   char* number = (char*)malloc(sizeof(char) * len + 1);
   number[len] = '\0';
