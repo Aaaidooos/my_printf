@@ -7,6 +7,7 @@ int print_str(char* str)
        write(1, "(null)", 6);
        return 6;
    }
+
    else
    {
      int size = 0;
