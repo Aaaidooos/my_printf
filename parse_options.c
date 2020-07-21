@@ -1,6 +1,7 @@
 #include "src.h"
 #include <math.h>
 
+
 int parse_string(va_list ap)
 {
   int size = 0;
@@ -17,18 +18,18 @@ int parse_char(va_list ap)
   return size;
 }
 
-int parse_decimal(va_list ap)
+int itoa_base(va_list ap, int base)
 {
-  int size = 0;
-  int num = va_arg(ap, int);
+    int size = 0;
+    int num = va_arg(ap, int);
   
-  if(num < 0)
-  {
-    put_char('-');
-  }
+    if(num < 0)
+    {
+        put_char('-');
+    }
 
-  size += print_number(num, 10);
-  return size;
+    size += print_number(num, base);
+    return size;
 }
 
 int parse_unsigned(va_list ap)
@@ -50,30 +51,13 @@ int parse_unsigned(va_list ap)
     return size;
 }
 
-int parse_octal(va_list ap)
-{
-    int size = 0;
-    int num = va_arg(ap, int);
-    char* octal = convert_to(num, 8);
-    size += print_str(octal);
-    return size;
-}
-
-int parse_hex(va_list ap)
-{
-    int size = 0;
-    int num = va_arg(ap, int);
-    char* hex = convert_to(num, 16);
-    size += print_str(hex);
-    return size;
-}
-
 int parse_ptr(va_list ap)
 {
     void* ptr = va_arg(ap, void*);
     long ptr_num = (long) ptr;
     my_printf("0x");
     char* str = make_ptr(ptr_num);
-    int size = print_str(str);
+    int size = 2;
+    size += print_str(str);
     return size;
 }
