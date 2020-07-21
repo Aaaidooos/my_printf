@@ -1,10 +1,17 @@
 #include "src.h"
 #include <math.h>
 
-int main(void)
+
+int main()
 {
-  my_printf("this is implementation of printf\n");
- return 0;
+  test_0_1();
+  test_2_3();
+  test_4_5();
+  test_6_7();
+  test_8_9();
+  test_10_11();
+  //.......
+  return 0;
 }
 
 
